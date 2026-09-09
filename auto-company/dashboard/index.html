@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FDA Solutions: First Design Aid for HoReCa &amp; more | Рабочая панель</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Crimson+Pro:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="mesh"></div>
+  <div class="grain"></div>
+  <main class="deck">
+    <header class="hero panel reveal-1">
+      <div>
+        <p class="eyebrow">FDA SOLUTIONS</p>
+        <h1>Рабочая панель</h1>
+        <p class="subtitle">Поиск лидов, демо-сайты и коммерческие материалы для HoReCa и других ниш.</p>
+      </div>
+      <div class="hero-meta">
+        <div class="pulse-wrap">
+          <span id="pulseDot" class="pulse-dot"></span>
+          <span id="pulseText">Связь: ПРОВЕРКА</span>
+        </div>
+        <p id="lastUpdate">Обновление: --</p>
+        <p id="latency">Отклик: --</p>
+      </div>
+    </header>
+
+    <section class="controls panel reveal-2">
+      <div class="control-group">
+        <button id="btnRefresh" class="btn btn-ghost">Обновить</button>
+        <button id="btnStart" class="btn btn-start">Запустить</button>
+        <button id="btnStop" class="btn btn-stop">Остановить</button>
+      </div>
+      <div class="control-group compact">
+        <label class="toggle">
+          <input id="autoToggle" type="checkbox" checked />
+          <span>Автообновление</span>
+        </label>
+        <label>
+          Интервал
+          <select id="refreshInterval">
+            <option value="3000">3s</option>
+            <option value="5000" selected>5s</option>
+            <option value="8000">8s</option>
+            <option value="12000">12s</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="task-panel panel reveal-3">
+      <div class="panel-head task-head">
+        <h3>Задачи</h3>
+        <span id="modelChip" class="chip">Gemini</span>
+      </div>
+      <div id="chatMessages" class="chat-messages" aria-live="polite">
+        <div class="message assistant">
+          <div class="message-bubble">Сформулируйте задачу, и я выполню её через агент FDA Solutions.</div>
+        </div>
+      </div>
+      <form id="chatForm" class="chat-form">
+        <textarea id="chatInput" rows="3" placeholder="Например: проверь проект, найди ошибку в этом модуле и исправь её"></textarea>
+        <button id="btnSendTask" class="btn btn-start" type="submit">Выполнить</button>
+      </form>
+    </section>
+
+    <section class="grid-cards reveal-4">
+      <article class="panel card status-card" id="cardGuardian">
+        <h3>Защитник</h3>
+        <p class="big" id="guardianState">--</p>
+        <p class="muted mono" id="guardianMeta">PID --</p>
+      </article>
+      <article class="panel card status-card" id="cardDaemon">
+        <h3>Сервис</h3>
+        <p class="big" id="daemonState">--</p>
+        <p class="muted mono" id="daemonMeta">MainPID --</p>
+      </article>
+      <article class="panel card status-card" id="cardLoop">
+        <h3>Цикл</h3>
+        <p class="big" id="loopState">--</p>
+        <p class="muted mono" id="loopMeta">Cycle --</p>
+      </article>
+      <article class="panel card status-card" id="cardAutostart">
+        <h3>Автозапуск</h3>
+        <p class="big" id="autostartState">--</p>
+        <p class="muted mono" id="autostartMeta">Autostart</p>
+      </article>
+    </section>
+
+    <section class="grid-details reveal-5">
+      <article class="panel detail">
+        <h3>Состояние системы</h3>
+        <dl id="stateList" class="state-list"></dl>
+      </article>
+      <article class="panel detail">
+        <h3>Память команды</h3>
+        <div id="consensusText" class="markdown-view">(loading...)</div>
+      </article>
+    </section>
+
+    <section class="panel reveal-6">
+      <div class="panel-head">
+        <h3>Последние записи</h3>
+        <button id="btnTail" class="btn btn-ghost small">Обновить лог</button>
+      </div>
+      <pre id="logText" class="terminal tall">(loading...)</pre>
+    </section>
+
+    <section class="panel reveal-7">
+      <div class="panel-head">
+        <h3>Технический статус</h3>
+        <button id="btnRaw" class="btn btn-ghost small">Показать</button>
+      </div>
+      <pre id="rawText" class="terminal hidden"></pre>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

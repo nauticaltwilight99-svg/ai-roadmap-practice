@@ -1,0 +1,60 @@
+services:
+  dashboard:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    env_file:
+      - .env
+    environment:
+      GEMINI_PROJECT_DIR: /workspace/project
+      GEMINI_AGENT_WIN: /app/scripts/core/gemini-agent.py
+      GEMINI_ENV_FILE: /run/secrets/auto_company_env
+      DASHBOARD_USER: ${DASHBOARD_USER:-admin}
+      DASHBOARD_PASSWORD: ${DASHBOARD_PASSWORD:?Set DASHBOARD_PASSWORD in .env}
+      METRICS_DB: /workspace/project/.runtime/metrics.sqlite3
+      TASKS_DB: /workspace/project/.runtime/tasks.sqlite3
+      APPROVALS_DB: /workspace/project/.runtime/approvals.sqlite3
+    volumes:
+      - ./:/workspace/project
+      - ./.env:/run/secrets/auto_company_env:ro
+
+  telegram-bot:
+    build: .
+    restart: unless-stopped
+    command: ["python", "scripts/core/telegram_bot.py"]
+    env_file:
+      - .env
+    environment:
+      TELEGRAM_ENV_FILE: /run/secrets/auto_company_env
+      GEMINI_ENV_FILE: /run/secrets/auto_company_env
+      GEMINI_PROJECT_DIR: /workspace/project
+      GEMINI_AGENT_WIN: /app/scripts/core/gemini-agent.py
+      GEMINI_PYTHON_BIN: /usr/local/bin/python
+      TELEGRAM_MEMORY_DB: /workspace/project/.runtime/telegram_memory.sqlite3
+      METRICS_DB: /workspace/project/.runtime/metrics.sqlite3
+      APPROVALS_DB: /workspace/project/.runtime/approvals.sqlite3
+    volumes:
+      - ./:/workspace/project
+      - ./.env:/run/secrets/auto_company_env:ro
+
+  research-worker:
+    build: .
+    restart: unless-stopped
+    command: ["python", "scripts/core/worker_loop.py"]
+    env_file:
+      - .env
+    environment:
+      TELEGRAM_ENV_FILE: /run/secrets/auto_company_env
+      TELEGRAM_OWNER_CHAT_ID: ${TELEGRAM_OWNER_CHAT_ID:-0}
+      GEMINI_ENV_FILE: /run/secrets/auto_company_env
+      GEMINI_PROJECT_DIR: /workspace/project
+      GEMINI_AGENT_WIN: /app/scripts/core/gemini-agent.py
+      GEMINI_PYTHON_BIN: /usr/local/bin/python
+      WORKER_POLL_SECONDS: ${WORKER_POLL_SECONDS:-10}
+      LEADS_DB: /workspace/project/.runtime/leads.sqlite3
+      TASKS_DB: /workspace/project/.runtime/tasks.sqlite3
+      APPROVALS_DB: /workspace/project/.runtime/approvals.sqlite3
+    volumes:
+      - ./:/workspace/project
+      - ./.env:/run/secrets/auto_company_env:ro

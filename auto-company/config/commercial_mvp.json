@@ -1,0 +1,144 @@
+{
+  "name": "Commercial MVP",
+  "language": "ru",
+  "target_markets": [
+    {
+      "id": "belarus",
+      "name": "Беларусь",
+      "cities": ["Минск", "Брест", "Гродно", "Гомель", "Витебск", "Могилёв"]
+    },
+    {
+      "id": "kazakhstan",
+      "name": "Казахстан",
+      "cities": ["Алматы", "Астана", "Шымкент", "Караганда", "Актобе", "Атырау"]
+    }
+  ],
+  "lead_selection": {
+    "principle": "high_business_signal_low_digital_quality",
+    "minimum_rating": 4.3,
+    "prefer_public_contact": true,
+    "exclude_chains_with_strong_web_presence": true,
+    "require_manual_review_before_contact": true
+  },
+  "active_offer": {
+    "id": "conversion-demo-first",
+    "name": "Персональное демо улучшения сайта",
+    "promise": "Сначала покажем бесплатный мини-аудит и один улучшенный экран, а полный пакет подготовим после согласования.",
+    "price": "первый полный проект: 49–99 EUR",
+    "delivery_time": "48 часов",
+    "payment": "демо бесплатно; оплата только после согласования полного проекта",
+    "deliverables": [
+      "аудит первого экрана и пути к записи",
+      "новая структура главной страницы",
+      "тексты CTA, услуг и FAQ",
+      "HTML-прототип первого экрана",
+      "короткий план внедрения"
+    ]
+  },
+  "starting_niches": [
+    {
+      "id": "dental-web-upgrade",
+      "name": "Стоматологии с хорошими отзывами и слабым сайтом",
+      "segment": "dentistry",
+      "search_query_templates": [
+        "стоматология {city} отзывы сайт",
+        "стоматологическая клиника {city} запись",
+        "стоматология {city} 4.5 отзывы официальный сайт",
+        "частная стоматология {city} цены услуги",
+        "стоматология {city} имплантация лечение зубов",
+        "клиника стоматологии {city} контакты email",
+        "dentist clinic {city} website",
+        "dental clinic {city} booking website",
+        "стоматология {city} сайт устарел",
+        "стоматология {city} нет онлайн записи"
+      ],
+      "priority": true,
+      "offer": "Экспресс-улучшение сайта стоматологии за 48 часов",
+      "offer_details": {
+        "name": "Экспресс-улучшение сайта стоматологии",
+        "promise": "Бесплатно покажем 2–3 точки роста и один улучшенный экран сайта клиники.",
+        "price": "полный первый проект: 49–99 EUR",
+        "delivery_time": "48 часов"
+      },
+      "deliverables": [
+        "аудит первого экрана и пути к записи",
+        "новая структура главной страницы",
+        "тексты CTA, услуг и FAQ",
+        "HTML-прототип первого экрана",
+        "короткий план внедрения"
+      ],
+      "lead_criteria": {
+        "min_rating": 4.3,
+        "has_website": true,
+        "weak_design_signal": true
+      }
+    },
+    {
+      "id": "hospitality-web-upgrade",
+      "name": "Отели и рестораны с хорошими отзывами и слабым сайтом",
+      "segment": "horeca",
+      "search_query_templates": [
+        "ресторан {city} отзывы сайт",
+        "отель {city} отзывы бронирование",
+        "кафе {city} меню сайт",
+        "ресторан {city} 4.5 отзывы официальный сайт",
+        "ресторан {city} забронировать столик сайт",
+        "отель {city} 4.5 отзывы официальный сайт",
+        "отель {city} бронирование номера сайт",
+        "кафе {city} доставка меню официальный сайт",
+        "ресторан {city} контакты email",
+        "restaurant {city} website booking",
+        "hotel {city} direct booking website",
+        "ресторан {city} сайт устарел",
+        "кафе {city} нет онлайн бронирования"
+      ],
+      "priority": true,
+      "offer": "Экспресс-улучшение сайта и коммерческих материалов за 3 дня",
+      "offer_details": {
+        "name": "HoReCa: улучшение сайта и прямых бронирований",
+        "promise": "Бесплатно покажем 2–3 точки роста и один улучшенный экран для бронирования или заказа.",
+        "price": "полный первый проект: 49–99 EUR",
+        "delivery_time": "3 дня"
+      },
+      "deliverables": [
+        "аудит сайта и карточек",
+        "новая структура главной страницы",
+        "готовые тексты и SEO-заголовки",
+        "прототип первого экрана",
+        "план ежемесячных обновлений"
+      ],
+      "lead_criteria": {
+        "min_rating": 4.2,
+        "has_website": true,
+        "weak_design_signal": true
+      }
+    },
+    {
+      "id": "local-business-web-upgrade",
+      "name": "Локальный бизнес без современного сайта",
+      "search_query": "локальный бизнес без сайта",
+      "offer": "Готовая продающая страница и комплект коммерческих текстов",
+      "deliverables": [
+        "анализ предложения",
+        "структура лендинга",
+        "тексты блоков",
+        "FAQ и SEO",
+        "предложение по сопровождению"
+      ],
+      "lead_criteria": {
+        "has_website": false,
+        "has_public_contact": true
+      }
+    }
+  ],
+  "workflow": [
+    "find_leads",
+    "research_lead",
+    "generate_preview",
+    "request_approval",
+    "contact_after_approval",
+    "track_reply",
+    "offer_subscription",
+    "measure_revenue"
+  ]
+}

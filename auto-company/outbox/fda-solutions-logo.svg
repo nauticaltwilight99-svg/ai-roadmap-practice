@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">FDA Solutions</title>
+  <desc id="desc">Coral window mark with a first-aid plus, upward path and FDA Solutions wordmark</desc>
+  <rect width="78" height="78" x="9" y="9" rx="24" fill="#263c36"/>
+  <path d="M28 57V30h27" fill="none" stroke="#fff8f4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 12v11M60.5 17.5h11" fill="none" stroke="#e9948b" stroke-width="4" stroke-linecap="round"/>
+  <path d="m28 57 14-14 9 8 17-21" fill="none" stroke="#e9948b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m59 30 9 0-1 9" fill="none" stroke="#e9948b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104" y="48" fill="#202b28" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" letter-spacing="3">FDA</text>
+  <text x="104" y="72" fill="#b75f57" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="2.4">SOLUTIONS</text>
+</svg>
